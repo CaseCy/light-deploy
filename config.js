@@ -8,6 +8,9 @@ module.exports = {
             username: 'root',
             password: 'root',
         },
+        build: {
+            cmd: 'npm run build'
+        },
         autoBuild: false,
         autoCompress: true,
         autoBak: false,
@@ -21,6 +24,5 @@ module.exports = {
             releasePath: '/netty-socket/web',
             // releaseDir: 'dist'
         }
-    }],
-    global: {}
+    }]
 }
