@@ -2,16 +2,14 @@ const node_ssh = require('node-ssh')
 const fs = require('fs');
 
 class SshServer {
-    constructor(config) {
-        this.config = config;
+    constructor(sshConfig) {
+        this.sshConfig = sshConfig;
         this.ssh = new node_ssh()
         this.connected = false;
     }
 
     async connect() {
-        await this.ssh.connect({
-            ...this.config.ssh
-        });
+        await this.ssh.connect(this.sshConfig);
         this.connected = true;
     }
 

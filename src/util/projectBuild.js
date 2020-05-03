@@ -6,7 +6,7 @@ function build({
     cmd,
     path
 }) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         exec(cmd, {
             cwd: path,
         }, (err, stdout, stderr) => {
