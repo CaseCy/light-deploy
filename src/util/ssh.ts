@@ -17,7 +17,7 @@ class SshServer {
         this.connected = true;
     }
 
-    exeCommand(command, path = '~') {
+    exeCommand(command: string, path = '~') {
         console.log("执行命令：", command)
         return this.ssh.execCommand(command, {
             cwd: path

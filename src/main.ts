@@ -17,9 +17,7 @@ async function main() {
     try {
         //变量初始化
         const activeConfig = configHandle.chooseConfig(config);
-        const local = activeConfig.local
-        const remote = activeConfig.remote;
-        const build = activeConfig.build;
+        const { local, remote, build, ssh } = activeConfig
         //打包文件所在目录
         let outPutPath = path.join(local.projectRootPath, local.buildOutDir);
         buildConfig.path = local.projectRootPath;
@@ -32,14 +30,14 @@ async function main() {
 
         //文件压缩
         if (activeConfig.autoCompress) {
-            const compressPath = path.join(buildConfig.path, activeConfig.local.buildOutDir);
+            const compressPath = path.join(buildConfig.path, local.buildOutDir);
             outPutPath = compressPath + ext;
             await compressFlow.excute(compressPath, outPutPath);
         }
 
         //连接服务器
         sshServer = new SSH({
-            ...activeConfig.ssh
+            ...ssh
         })
         await sshServer.connect();
         //文件上传
