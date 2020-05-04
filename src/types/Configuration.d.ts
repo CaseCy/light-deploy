@@ -3,6 +3,7 @@ import SSH = require("node-ssh");
 interface Configuration {
     active: string;
     configuration: Array<DeployConfig>
+    global?: DeployConfig;
 }
 
 interface DeployConfig {
@@ -22,7 +23,7 @@ interface BuildConfig {
 }
 
 interface LocalConfig {
-    buildCmdExePath?:string;
+    buildCmdExePath?: string;
     projectRootPath: string;
     buildOutDir: string;
 }

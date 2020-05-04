@@ -5,10 +5,10 @@ const config: Configuration = {
     configuration: [{
         name: 'dev',
         ssh: {
-            host: "120.77.81.112",
-            port: 33,
+            host: "172.16.3.33",
+            port: 22,
             username: "root",
-            password: "qwer!@34",
+            password: "root",
         },
         build: {
             cmd: 'npm run build'

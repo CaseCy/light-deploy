@@ -72,7 +72,7 @@ async function main() {
     }
 }
 
-function reName(remotePath, fileName) {
+function reName(remotePath: string, fileName: string) {
     fileName = fileName + moment().format('YYYY_MM_DD_HH_mm_ss');
     console.log(remotePath, fileName)
     return path.posix.join(remotePath, fileName);
