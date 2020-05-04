@@ -1,8 +1,8 @@
-const fs = require('fs');
-const archiver = require('archiver');
-const path = require('path')
+import fs = require('fs');
+import archiver = require('archiver');
+import path = require('path')
 
-function exe(sourceDir, targetPath) {
+function exe(sourceDir: string, targetPath: string) {
     let output = fs.createWriteStream(targetPath);
     // let archive = archiver('zip', {
     //     zlib: {
@@ -20,6 +20,6 @@ function exe(sourceDir, targetPath) {
     return archive.finalize();
 }
 
-module.exports = {
+export = {
     exe
 }

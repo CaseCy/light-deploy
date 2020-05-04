@@ -1,19 +1,21 @@
-module.exports = {
+import { Configuration } from "./types/Configuration"
+
+const config: Configuration = {
     active: 'dev',
     configuration: [{
         name: 'dev',
         ssh: {
-            host: '172.16.21.123',
+            host: "120.77.81.112",
             port: 33,
-            username: 'root',
-            password: 'root',
+            username: "root",
+            password: "qwer!@34",
         },
         build: {
             cmd: 'npm run build'
         },
-        autoBuild: false,
+        autoBuild: true,
         autoCompress: true,
-        autoBak: false,
+        autoBak: true,
         local: {
             projectRootPath: 'H:/web/ecma-test',
             buildOutDir: 'dist',
@@ -26,3 +28,5 @@ module.exports = {
         }
     }]
 }
+
+export = config

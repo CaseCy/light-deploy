@@ -1,4 +1,6 @@
-function chooseConfig(config) {
+import { Configuration } from "../types/Configuration";
+
+function chooseConfig(config: Configuration) {
     if (!config.active) {
         throw new Error("没有指定使用的配置")
     }
@@ -9,6 +11,6 @@ function chooseConfig(config) {
     throw new Error("没有找到指定的配置");
 }
 
-module.exports = {
+export = {
     chooseConfig
 }

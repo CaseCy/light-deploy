@@ -1,10 +1,10 @@
-const config = require('../config')
-const path = require('path')
-const SSH = require('./util/ssh')
-const configHandle = require('./util/confighandle')
-const buildFlow = require('./flow/build-flow')
-const compressFlow = require('./flow/compress-flow')
-const moment = require('moment');
+import config = require('./config')
+import path = require('path')
+import SSH = require('./util/ssh')
+import configHandle = require('./util/confighandle')
+import buildFlow = require('./flow/build-flow')
+import compressFlow = require('./flow/compress-flow')
+import moment = require('moment');
 let ext = ".tar.gz"
 
 let buildConfig = {
@@ -13,7 +13,7 @@ let buildConfig = {
 }
 
 async function main() {
-    let sshServer
+    let sshServer: SSH
     try {
         //变量初始化
         const activeConfig = configHandle.chooseConfig(config);
@@ -49,7 +49,7 @@ async function main() {
         //自动备份
         if (activeConfig.autoBak) {
             console.log("开始自动备份,备份目录", remote.bakPath)
-            await sshServer.exeCommand(`cp -r ${remoteAddr} ${reName(remote.bakPath,remoteAddr)}`).then(() => {
+            await sshServer.exeCommand(`cp -r ${remoteAddr} ${reName(remote.bakPath, remoteAddr)}`).then(() => {
                 console.log("备份成功")
             })
         }
@@ -63,7 +63,7 @@ async function main() {
             })
         } else {
             //文件夹
-            await sshServer.exeCommand(`cp -r ${remoteAddr} ${path.posix.join(remote.releasePath,remoteAddr)}`, ).then(() => {
+            await sshServer.exeCommand(`cp -r ${remoteAddr} ${path.posix.join(remote.releasePath, remoteAddr)}`).then(() => {
                 console.log("部署成功")
             }).catch(e => {
                 console.log("部署时出错", e)
