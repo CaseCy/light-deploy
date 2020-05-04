@@ -58,15 +58,11 @@ async function main() {
             //压缩文件
             await sshServer.exeCommand(`tar -zxf ${remoteAddr} -C ${remote.releasePath}`).then(() => {
                 console.log("部署成功")
-            }).catch(e => {
-                console.log("部署时出错", e)
             })
         } else {
             //文件夹
             await sshServer.exeCommand(`cp -r ${remoteAddr} ${path.posix.join(remote.releasePath, remoteAddr)}`).then(() => {
                 console.log("部署成功")
-            }).catch(e => {
-                console.log("部署时出错", e)
             })
         }
     } catch (e) {
