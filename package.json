@@ -4,7 +4,7 @@
   "description": "a project for auto deploy",
   "main": "index.js",
   "scripts": {
-    "deploy": "node ./src/main.js"
+    "deploy": "node dist/main.js"
   },
   "keywords": [
     "auto",
