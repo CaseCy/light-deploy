@@ -1,10 +1,10 @@
-import { Configuration, DeployConfig } from "../types/Configuration";
+import { Configuration, DeployConfig } from "../types";
 import SshServer = require("../util/ssh");
 
 export class Context {
-    config: Configuration;
-    activeConfig: DeployConfig;
-    sshServer: SshServer;
+    readonly config: Configuration;
+    readonly activeConfig: DeployConfig;
+    readonly sshServer: SshServer;
     outPutPath: string;
     remoteAddr: string;
 }

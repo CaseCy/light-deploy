@@ -1,5 +1,5 @@
 import { Context } from './Context';
-import { Excutor } from './Excutor';
+import { Excutor } from '../types';
 export class Deploychain {
     private excutors: Array<Excutor> = new Array();
     private context: Context;
@@ -18,6 +18,7 @@ export class Deploychain {
             try {
                 for (let excutor of this.excutors) {
                     await excutor.handle(this.context);
+                    count++;
                 }
             } catch (e) {
                 reject(e);

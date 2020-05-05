@@ -4,17 +4,13 @@ import path = require('path')
 import compress = require('../util/compress');
 import moment = require('moment');
 import * as fs from 'fs';
+import { Excutor } from '../types';
 
 let ext = ".tar.gz"
 
 let buildConfig = {
     cmd: 'npm run build',
     path: ""
-}
-
-
-export interface Excutor {
-    handle(context: Context): any;
 }
 
 export class BuildExcutor implements Excutor {
