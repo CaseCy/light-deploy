@@ -4,7 +4,10 @@
   "description": "a project for auto deploy",
   "main": "index.js",
   "scripts": {
-    "deploy": "node dist/main.js"
+    "deploy": "npm run compile && npm run main",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "main" : "node dist/main.js"
   },
   "keywords": [
     "auto",

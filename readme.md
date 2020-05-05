@@ -11,10 +11,6 @@ npm install -g typescript
 ```
 npm install
 ```
-将typescript编译为js，在vscode中也可以按ctrl+shift+b快速执行（ps：最好是鼠标选中左边的资源管理器再按，要不出来的是表情选择😂）
-```
-tsc -p .
-```
 执行
 ```
 npm run deploy

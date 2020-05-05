@@ -11,9 +11,9 @@ interface DeployConfig {
     name: string;
     ssh: SSH.ConfigGiven;
     build?: BuildConfig;
-    autoBuild: boolean;
-    autoCompress: boolean;
-    autoBak: boolean;
+    autoBuild?: boolean;
+    autoCompress?: boolean;
+    autoBak?: boolean;
     local: LocalConfig;
     remote: RemoteConfig
 }
@@ -31,7 +31,7 @@ interface LocalConfig {
 
 interface RemoteConfig {
     // deleteBeforeDeploy: false;
-    bakPath: string;
+    bakPath?: string;
     releasePath: string;
     // releaseDir: 'dist'
 }
