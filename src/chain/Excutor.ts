@@ -24,6 +24,7 @@ export class BuildExcutor implements Excutor {
         local.buildCmdExePath ? buildConfig.path = local.buildCmdExePath : "";
         build ? Object.assign(buildConfig, build) : "";
         console.log("开始进行项目构建，构建路径：", buildConfig.path, "执行的命令：", buildConfig.cmd)
+        build.path = buildConfig.path;
         const { err, stdout, } = await projectBuild.build(buildConfig);
         if (err) {
             throw err;
@@ -41,13 +42,12 @@ export class SSHConnectExcutor implements Excutor {
 
 export class CompressExcutor implements Excutor {
     async handle(context: Context) {
-        const { local } = context.activeConfig;
-        const compressPath = path.join(local.projectRootPath, local.buildOutDir);
+        const { local, build } = context.activeConfig;
+        const compressPath = path.join(build.path, local.buildOutDir);
         context.outPutPath = compressPath + ext;
         const outPutPath = context.outPutPath;
-        console.log(outPutPath, compressPath);
-        if (!fs.existsSync(outPutPath)) {
-            throw new Error("待压缩文件不存在：" + outPutPath)
+        if (!fs.existsSync(compressPath)) {
+            throw new Error("待压缩文件不存在：" + compressPath)
         }
         console.log("开始执行文件压缩 " + outPutPath)
         try {

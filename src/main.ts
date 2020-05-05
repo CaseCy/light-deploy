@@ -19,7 +19,6 @@ async function run() {
             ...ssh
         })
         const context: Context = { activeConfig, config, sshServer, outPutPath, remoteAddr }
-        await sshServer.connect();
         //执行链
         const deployChain = new Deploychain(context);
         autoBuild ? deployChain.addExcutor(new BuildExcutor()) : "";
@@ -32,7 +31,7 @@ async function run() {
     } catch (e) {
         console.log("构建时异常：", e);
     } finally {
-        if (sshServer) {
+        if (sshServer && sshServer.isConnect()) {
             sshServer.disConnect();
             console.log("ssh连接断开");
         }
