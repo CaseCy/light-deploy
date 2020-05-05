@@ -45,7 +45,7 @@ export class CompressExcutor implements Excutor {
         if (!fs.existsSync(compressPath)) {
             throw new Error("待压缩文件不存在：" + compressPath)
         }
-        console.log("开始执行文件压缩 " + outPutPath)
+        console.log("开始执行文件压缩 " + compressPath)
         try {
             await compress.exe(compressPath, outPutPath);
             console.log("压缩成功,文件路径", outPutPath);
