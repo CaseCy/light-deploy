@@ -1,5 +1,5 @@
 ### 基于node的轻量级自动部署发布工具
-已经加入vscode扩展，在vscode里搜索light-deploy，或者点击[这里]（https://marketplace.visualstudio.com/items?itemName=CononYc.Light-deploy）
+已经加入vscode扩展，在vscode里搜索light-deploy，或者点击[这里](https://marketplace.visualstudio.com/items?itemName=CononYc.Light-deploy)
 ## 使用方法
 首先按照下文中的配置详情修改`config.ts`为自己的配置
 
