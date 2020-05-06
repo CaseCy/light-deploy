@@ -7,7 +7,7 @@
     "deploy": "npm run compile && npm run main",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "main" : "node dist/main.js"
+    "main": "node dist/main.js"
   },
   "keywords": [
     "auto",
