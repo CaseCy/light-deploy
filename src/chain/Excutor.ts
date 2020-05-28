@@ -8,20 +8,12 @@ import { Excutor } from '../types';
 
 let ext = ".tar.gz"
 
-let buildConfig = {
-    cmd: 'npm run build',
-    path: ""
-}
-
 export class BuildExcutor implements Excutor {
     async handle(context: Context) {
         const { local, build } = context.activeConfig;
-        buildConfig.path = local.projectRootPath;
-        local.buildCmdExePath ? buildConfig.path = local.buildCmdExePath : "";
-        build ? Object.assign(buildConfig, build) : "";
-        console.log("开始进行项目构建，构建路径：", buildConfig.path, "执行的命令：", buildConfig.cmd)
-        context.activeConfig.build = buildConfig
-        const { err, stdout, } = await projectBuild.build(buildConfig);
+        build.path ? "" : build.path = local.projectRootPath;
+        console.log("开始进行项目构建，构建路径：", build.path, "执行的命令：", build.cmd)
+        const { err, stdout, } = await projectBuild.build({ ...build });
         if (err) {
             throw err;
         }

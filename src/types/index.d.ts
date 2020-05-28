@@ -3,28 +3,27 @@ import { Context } from './../chain/Context';
 
 interface Configuration {
     active: string;
-    configuration: Array<DeployConfig>
+    configuration: Array<DeployConfig>;
     global?: DeployConfig;
 }
 
 interface DeployConfig {
-    name: string;
-    ssh: SSH.ConfigGiven;
+    name?: string;
+    ssh?: SSH.ConfigGiven;
     build?: BuildConfig;
     autoBuild?: boolean;
     autoCompress?: boolean;
     autoBak?: boolean;
-    local: LocalConfig;
-    remote: RemoteConfig
+    local?: LocalConfig;
+    remote?: RemoteConfig;
 }
 
 interface BuildConfig {
     cmd?: string;
-    path?: string
+    path?: string;
 }
 
 interface LocalConfig {
-    buildCmdExePath?: string;
     projectRootPath: string;
     buildOutDir: string;
 }
